@@ -16,7 +16,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
-    const validatePassword = (password) => password.length >= 6; // Basic strength check
+    const validatePassword = (password) => password.length >= 6;
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -80,9 +80,9 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-50 to-yellow-100 px-4">
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 transition-transform transform hover:scale-105">
-                <h2 className="text-3xl font-extrabold text-center mb-6 text-yellow-600 flex items-center justify-center gap-2">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black to-cyan-900 px-4">
+            <div className="w-full max-w-md bg-black rounded-2xl shadow-2xl p-8 transition-transform transform hover:scale-105">
+                <h2 className="text-3xl font-extrabold text-center mb-6 text-cyan-400 flex items-center justify-center gap-2">
                     <FiUser /> Create Account
                 </h2>
 
@@ -94,26 +94,26 @@ const Register = () => {
                         <input
                             type="email"
                             placeholder="Email"
-                            className="w-full border border-gray-300 rounded-xl px-5 py-3 pl-12 outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                            className="w-full border border-cyan-400 rounded-xl px-5 py-3 pl-12 outline-none focus:ring-2 focus:ring-cyan-400 transition bg-black text-cyan-400"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
-                        <FiMail className="absolute left-3 top-3.5 text-gray-400" />
+                        <FiMail className="absolute left-3 top-3.5 text-cyan-400" />
                     </div>
 
                     <div className="relative">
                         <input
                             type={showPassword ? "text" : "password"}
                             placeholder="Password (min 6 chars)"
-                            className="w-full border border-gray-300 rounded-xl px-5 py-3 pl-12 pr-12 outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                            className="w-full border border-cyan-400 rounded-xl px-5 py-3 pl-12 pr-12 outline-none focus:ring-2 focus:ring-cyan-400 transition bg-black text-cyan-400"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <FiLock className="absolute left-3 top-3.5 text-gray-400" />
+                        <FiLock className="absolute left-3 top-3.5 text-cyan-400" />
                         <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600"
+                            className="absolute right-3 top-3.5 text-cyan-400 hover:text-cyan-200"
                         >
                             {showPassword ? <FiEyeOff /> : <FiEye />}
                         </button>
@@ -123,17 +123,17 @@ const Register = () => {
                         <input
                             type={showPassword ? "text" : "password"}
                             placeholder="Confirm Password"
-                            className="w-full border border-gray-300 rounded-xl px-5 py-3 pl-12 pr-12 outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                            className="w-full border border-cyan-400 rounded-xl px-5 py-3 pl-12 pr-12 outline-none focus:ring-2 focus:ring-cyan-400 transition bg-black text-cyan-400"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />
-                        <FiLock className="absolute left-3 top-3.5 text-gray-400" />
+                        <FiLock className="absolute left-3 top-3.5 text-cyan-400" />
                     </div>
 
                     <button
                         type="submit"
                         disabled={loading}
-                        className={`w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 rounded-xl transition shadow-md hover:shadow-lg flex items-center justify-center gap-2 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+                        className={`w-full bg-cyan-400 hover:bg-cyan-500 text-black font-semibold py-3 rounded-xl transition shadow-md hover:shadow-lg flex items-center justify-center gap-2 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
                     >
                         {loading ? <FiRefreshCw className="animate-spin" /> : ""} {loading ? "Creating account..." : "Register"}
                     </button>
@@ -142,29 +142,29 @@ const Register = () => {
                 <div className="mt-6 flex flex-col gap-3">
                     <button
                         onClick={handleGoogleRegister}
-                        className="w-full bg-white border border-gray-300 hover:bg-gray-50 flex items-center justify-center gap-2 py-3 rounded-xl transition shadow-sm hover:shadow-md"
+                        className="w-full bg-black border border-cyan-400 hover:bg-cyan-900 flex items-center justify-center gap-2 py-3 rounded-xl transition shadow-sm hover:shadow-md text-cyan-400"
                     >
                         <FcGoogle size={22} /> Register with Google
                     </button>
 
                     <button
                         onClick={handlePhoneRegister}
-                        className="w-full bg-blue-500 hover:bg-blue-600 flex items-center justify-center gap-2 py-3 rounded-xl transition shadow-sm hover:shadow-md text-white font-semibold"
+                        className="w-full bg-cyan-700 hover:bg-cyan-800 flex items-center justify-center gap-2 py-3 rounded-xl transition shadow-sm hover:shadow-md text-black font-semibold"
                     >
                         Register with Phone
                     </button>
 
                     <button
                         onClick={handleGuestRegister}
-                        className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-xl transition shadow-sm hover:shadow-md"
+                        className="w-full bg-gray-900 hover:bg-gray-800 text-cyan-400 font-semibold py-3 rounded-xl transition shadow-sm hover:shadow-md"
                     >
                         Continue as Guest
                     </button>
                 </div>
 
-                <p className="text-sm text-center mt-6 text-gray-600">
+                <p className="text-sm text-center mt-6 text-cyan-400">
                     Already have an account?{" "}
-                    <Link to="/login" className="text-yellow-600 font-medium hover:underline">
+                    <Link to="/login" className="text-cyan-400 font-medium hover:underline">
                         Login
                     </Link>
                 </p>
