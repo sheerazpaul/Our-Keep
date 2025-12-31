@@ -42,7 +42,7 @@ const Navbar = ({ onSearch, onMenuToggle }) => {
     };
 
     return (
-        <nav className="w-full h-16 sm:h-20 bg-black border-b border-cyan-400 shadow-sm px-4 sm:px-8 flex items-center justify-between relative z-50">
+        <nav className="w-full h-16 sm:h-20 bg-white   shadow-sm px-4 sm:px-8 flex items-center justify-between relative z-50">
             <div className="flex items-center gap-4">
                 {/* <button onClick={onMenuToggle} className="p-2 rounded-full hover:bg-cyan-900">
                     <Menu size={22} />
