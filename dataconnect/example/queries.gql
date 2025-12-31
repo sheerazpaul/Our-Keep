@@ -1,0 +1,37 @@
+mutation CreateNewNote($title: String!, $content: String!, $isFavorite: Boolean) @auth(level: USER) {
+  note_insert(data: {
+    title: $title,
+    content: $content,
+    isFavorite: $isFavorite,
+    userId_expr: "auth.uid",
+    createdAt_expr: "request.time",
+    updatedAt_expr: "request.time"
+  })
+}
+
+query GetMyNotes @auth(level: USER) {
+  notes(where: {userId: {eq_expr: "auth.uid"}}) {
+    id
+    title
+    content
+    isFavorite
+    createdAt
+    updatedAt
+  }
+}
+
+mutation UpdateNote($id: UUID!, $title: String, $content: String, $isFavorite: Boolean) @auth(level: USER) {
+  note_update(
+    id: $id,
+    data: {
+      title: $title,
+      content: $content,
+      isFavorite: $isFavorite,
+      updatedAt_expr: "request.time"
+    }
+  )
+}
+
+mutation DeleteNote($id: UUID!) @auth(level: USER) {
+  note_delete(id: $id)
+}
